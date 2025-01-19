@@ -14,6 +14,7 @@ public class ClassroomController {
 //    @Autowired
 //    private Classroom classroom;
 //
+    @Autowired
     private final ClassroomService classroomService;
     public ClassroomController(ClassroomService classroomService){
         this.classroomService = classroomService;
@@ -33,10 +34,9 @@ public class ClassroomController {
         return classroomService.addClassRoom(classroom);
     }
 
-    @PostMapping
+    @PostMapping("/multiple")
     public String addMultipleClassrooms(@RequestBody List<Classroom> classrooms){
         return classroomService.addMultipleClassRoom(classrooms);
     }
-
 
 }
