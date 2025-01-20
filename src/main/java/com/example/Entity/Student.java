@@ -1,5 +1,6 @@
 package com.example.Entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,6 +21,7 @@ public class Student {
 
     @ManyToOne
     @JoinColumn(name = "classroom_id")
+    @JsonBackReference
     private Classroom classroom;
 
     @ManyToMany
@@ -28,5 +30,12 @@ public class Student {
             joinColumns = @JoinColumn(name = "student_id"),
             inverseJoinColumns = @JoinColumn(name = "teacher_id")
     )
+    @JsonBackReference
     private List<Teacher> teachers;
+
+    public Student(long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }
+

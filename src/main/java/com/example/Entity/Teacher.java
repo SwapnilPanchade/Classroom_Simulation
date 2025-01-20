@@ -1,5 +1,6 @@
 package com.example.Entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -19,9 +20,11 @@ public class Teacher {
     private String name;
 
     @OneToMany(mappedBy = "teacher", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
     private List<Classroom> classrooms;
 
     @ManyToMany(mappedBy = "teachers")
+    @JsonManagedReference
     private List<Student> students;
 
 }

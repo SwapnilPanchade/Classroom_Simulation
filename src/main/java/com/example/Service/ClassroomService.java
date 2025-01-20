@@ -12,7 +12,7 @@ import java.util.Optional;
 public class ClassroomService {
 
     @Autowired
-    private final ClassroomRepo classroomRepo;
+    public final ClassroomRepo classroomRepo;
 
     @Autowired
     public ClassroomService(ClassroomRepo classroomRepo) {
